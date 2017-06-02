@@ -12624,246 +12624,10 @@ module.exports = ReactNoopUpdateQueue;
 
 /***/ }),
 /* 151 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactBootstrap = __webpack_require__(67);
-
-var _reactRedux = __webpack_require__(46);
-
-var _redux = __webpack_require__(40);
-
-var _reactDom = __webpack_require__(21);
-
-var _booksActions = __webpack_require__(158);
-
-var _axios = __webpack_require__(260);
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var BooksForm = function (_React$Component) {
-  _inherits(BooksForm, _React$Component);
-
-  function BooksForm() {
-    _classCallCheck(this, BooksForm);
-
-    var _this = _possibleConstructorReturn(this, (BooksForm.__proto__ || Object.getPrototypeOf(BooksForm)).call(this));
-
-    _this.state = {
-      images: [{}],
-      img: ''
-    };
-    return _this;
-  }
-
-  _createClass(BooksForm, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.props.getBooks;
-      // GET IMAGES FROM API
-      _axios2.default.get('/api/images').then(function (response) {
-        this.setState({ images: response.data });
-      }.bind(this)).catch(function (err) {
-        this.setState({ images: 'error loading image image files from the server', img: '' });
-      }.bind(this));
-    }
-  }, {
-    key: 'handleSubmit',
-    value: function handleSubmit() {
-      var book = [{
-        title: (0, _reactDom.findDOMNode)(this.refs.title).value,
-        description: (0, _reactDom.findDOMNode)(this.refs.description).value,
-        images: (0, _reactDom.findDOMNode)(this.refs.image).value,
-        price: (0, _reactDom.findDOMNode)(this.refs.price).value
-      }];
-      this.props.postBooks(book);
-    }
-  }, {
-    key: 'onDelete',
-    value: function onDelete() {
-      var bookId = (0, _reactDom.findDOMNode)(this.refs.delete).value;
-
-      this.props.deleteBooks(bookId);
-    }
-  }, {
-    key: 'handleSelect',
-    value: function handleSelect(img) {
-      this.setState({
-        img: '/images/' + img
-      });
-    }
-  }, {
-    key: 'render',
-    value: function render() {
-
-      var booksList = this.props.books.map(function (booksArr) {
-        return _react2.default.createElement(
-          'option',
-          { key: booksArr._id },
-          booksArr._id
-        );
-      });
-
-      var imgList = this.state.images.map(function (imgArr, i) {
-        return _react2.default.createElement(
-          _reactBootstrap.MenuItem,
-          { key: i, eventKey: imgArr.name,
-            onClick: this.handleSelect.bind(this, imgArr.name) },
-          imgArr.name
-        );
-      }, this);
-
-      return _react2.default.createElement(
-        _reactBootstrap.Well,
-        null,
-        _react2.default.createElement(
-          _reactBootstrap.Row,
-          null,
-          _react2.default.createElement(
-            _reactBootstrap.Col,
-            { xs: 12, sm: 6 },
-            _react2.default.createElement(
-              _reactBootstrap.Panel,
-              null,
-              _react2.default.createElement(
-                _reactBootstrap.InputGroup,
-                null,
-                _react2.default.createElement(_reactBootstrap.FormControl, { type: 'text', ref: 'image', value: this.state.img }),
-                _react2.default.createElement(
-                  _reactBootstrap.DropdownButton,
-                  {
-                    componentClass: _reactBootstrap.InputGroup.Button,
-                    id: 'input-dropdown-addon',
-                    title: 'Select an Image',
-                    bsStyle: 'primary' },
-                  imgList
-                )
-              ),
-              _react2.default.createElement(_reactBootstrap.Image, { src: this.state.img, responsive: true })
-            )
-          ),
-          _react2.default.createElement(
-            _reactBootstrap.Col,
-            { xs: 12, sm: 6 },
-            _react2.default.createElement(
-              _reactBootstrap.Panel,
-              null,
-              _react2.default.createElement(
-                _reactBootstrap.FormGroup,
-                { controlId: 'title' },
-                _react2.default.createElement(
-                  _reactBootstrap.ControlLabel,
-                  null,
-                  'Title'
-                ),
-                _react2.default.createElement(_reactBootstrap.FormControl, {
-                  type: 'text',
-                  placeholder: 'Enter Title',
-                  ref: 'title' })
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.FormGroup,
-                { controlId: 'description' },
-                _react2.default.createElement(
-                  _reactBootstrap.ControlLabel,
-                  null,
-                  'Description'
-                ),
-                _react2.default.createElement(_reactBootstrap.FormControl, {
-                  type: 'text',
-                  placeholder: 'Enter Description',
-                  ref: 'description' })
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.FormGroup,
-                { controlId: 'Enter Price' },
-                _react2.default.createElement(
-                  _reactBootstrap.ControlLabel,
-                  null,
-                  'Price'
-                ),
-                _react2.default.createElement(_reactBootstrap.FormControl, {
-                  type: 'text',
-                  placeholder: 'Enter Price',
-                  ref: 'price' })
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.Button,
-                { onClick: this.handleSubmit.bind(this), bsStyle: 'primary' },
-                'Save Book'
-              )
-            ),
-            _react2.default.createElement(
-              _reactBootstrap.Panel,
-              { style: { marginTop: '25px' } },
-              _react2.default.createElement(
-                _reactBootstrap.FormGroup,
-                { controlId: 'formControlsSelect' },
-                _react2.default.createElement(
-                  _reactBootstrap.ControlLabel,
-                  null,
-                  'Select a book id to delete'
-                ),
-                _react2.default.createElement(
-                  _reactBootstrap.FormControl,
-                  { ref: 'delete', componentClass: 'select', placeholder: 'select' },
-                  _react2.default.createElement(
-                    'option',
-                    { value: 'select' },
-                    'select'
-                  ),
-                  booksList
-                )
-              ),
-              _react2.default.createElement(
-                _reactBootstrap.Button,
-                { onClick: this.onDelete.bind(this), bsStyle: 'danger' },
-                'Delete Book'
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
-
-  return BooksForm;
-}(_react2.default.Component);
-
-function mapStateToProps(state) {
-  console.log("mapStateToProps", state.books);
-  return {
-    books: state.books.books
-  };
-}
-function mapDispatchToProps(dispatch) {
-  return (0, _redux.bindActionCreators)({
-    postBooks: _booksActions.postBooks,
-    deleteBooks: _booksActions.deleteBooks,
-    getBooks: _booksActions.getBooks
-  }, dispatch);
-}
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(BooksForm);
+throw new Error("Module build failed: SyntaxError: Unexpected token, expected , (124:14)\n\n\u001b[0m \u001b[90m 122 | \u001b[39m\n \u001b[90m 123 | \u001b[39m              bsStyle\u001b[33m=\u001b[39m{(\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39mstyle)\u001b[33m?\u001b[39m(\u001b[32m\"primary\"\u001b[39m)\u001b[33m:\u001b[39m(thi\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 124 | \u001b[39m              s\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39mstyle)}\u001b[33m>\u001b[39m\n \u001b[90m     | \u001b[39m              \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 125 | \u001b[39m               {(\u001b[33m!\u001b[39m\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mprops\u001b[33m.\u001b[39mmsg)\u001b[33m?\u001b[39m(\u001b[32m\"Save\u001b[39m\n \u001b[90m 126 | \u001b[39m              book\u001b[32m\"):(this.props.msg)}\u001b[39m\n \u001b[90m 127 | \u001b[39m               \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mButton\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 152 */
@@ -13427,6 +13191,7 @@ exports.getBooks = getBooks;
 exports.postBooks = postBooks;
 exports.deleteBooks = deleteBooks;
 exports.updateBooks = updateBooks;
+exports.resetButton = resetButton;
 
 var _axios = __webpack_require__(260);
 
@@ -13491,6 +13256,13 @@ function updateBooks(book) {
   return {
     type: "UPDATE_BOOK",
     payload: book
+  };
+}
+
+// REST FORM BUTTON
+function resetButton() {
+  return {
+    type: "RESET_BUTTON"
   };
 }
 
@@ -24057,7 +23829,13 @@ function booksReducers() {
     case "POST_BOOK":
       // let books = state.books.concat(action.payload);
       // return {books};
-      return { books: [].concat(_toConsumableArray(state.books), _toConsumableArray(action.payload)) };
+      return _extends({}, state, { books: [].concat(_toConsumableArray(state.books), _toConsumableArray(action.payload)), msg: 'Saved! Click to continue', style: 'success' });
+      break;
+    case "POST_BOOK_REJECTED":
+      return _extends({}, state, { msg: 'Please, try again', style: 'danger' });
+      break;
+    case "RESET_BUTTON":
+      return _extends({}, state, { msg: 'null', style: 'primary' });
       break;
     case "DELETE_BOOK":
       // create a copy of the current array of books

@@ -64,3 +64,10 @@ export function updateBooks(book) {
     payload: book
   }
 }
+
+// REST FORM BUTTON
+export function resetButton() {
+  return {
+    type: "RESET_BUTTON",
+  }
+}
