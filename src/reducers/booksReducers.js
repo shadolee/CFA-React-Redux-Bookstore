@@ -2,24 +2,16 @@
 
 // BOOKS REDUCERS
 export function booksReducers(state={
-  books:
-    [{
-     _id: 1,
-     title: 'this is the book title',
-     description: 'this is the book description',
-     price: 44.33
-   },
-   {
-     _id: 2,
-     title: 'this is the 2nd book title',
-     description: 'this is the 2nd book description',
-     price: 55
-   }]
+  books:[]
 }, action) {
   switch(action.type) {
-    case "GET BOOKS":
-    return {...state, books:[...state.books]}
+    case "GET_BOOKS":
+    // console.log("Heyyy", action.books);
+    // const s = {...state, books:[...action.books]}
+    // console.log("Heyyy", s);
+    // return s;
     // this will give a copy of state & copy of books array from the state
+    return {...state, books:[...action.payload]}
     break;
     case "POST_BOOK":
     // let books = state.books.concat(action.payload);

@@ -12,8 +12,10 @@ import Cart from './cart';
 class BooksList extends React.Component {
   componentDidMount(){
     this.props.getBooks()
+    // getBooks(this.props.refreshBooks)
   }
   render() {
+    // console.log("booksList.render");
     const booksList = this.props.books.map(function(booksArr){
       return(
         <Col xs={12} sm={6} md={4} key={booksArr._id}>
@@ -42,12 +44,18 @@ class BooksList extends React.Component {
 }
 
 function mapStateToProps(state){
+  // console.log("Hello", state.books.books);
   return{
     books: state.books.books
   }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch){
+  // return {
+  //   refreshBooks: (books) => dispatch({ type: "GET_BOOKS", books })
+  //
+  // }
+
   return bindActionCreators({
     getBooks:getBooks,
   }, dispatch)

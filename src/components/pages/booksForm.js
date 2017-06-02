@@ -74,6 +74,7 @@ class BooksForm extends React.Component {
   }
 }
 function mapStateToProps(state){
+  console.log("mapStateToProps", state.books);
   return{
     books: state.books.books
   }

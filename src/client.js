@@ -8,17 +8,18 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 import { applyMiddleware, createStore } from 'redux'; // import these methods from Redux
 import logger from 'redux-logger'; // makes console data more colourful and detailed
+import thunk from 'redux-thunk';
 
 // IMPORT COMBINED REDUCERS
 import reducers from './reducers/index';
 
 // IMPORT ACTIONS
 import { addToCart } from './actions/cartActions';
-import { postBooks, deleteBooks, updateBooks } from './actions/booksActions';
+// import { postBooks, deleteBooks, updateBooks } from './actions/booksActions';
 
 
 // STEP 1 create the store
-const middleware = applyMiddleware(logger);
+const middleware = applyMiddleware(thunk, logger );
 const store = createStore(reducers, middleware);
 
 
