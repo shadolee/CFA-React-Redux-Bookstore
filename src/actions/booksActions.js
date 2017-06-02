@@ -5,7 +5,7 @@ import axios from 'axios'; //Axios is a Javascript library used to make http req
 // GET A BOOK
 export function getBooks(){
   return function(dispatch){
-    axios.get("/books")
+    axios.get("/api/books")
       .then(function(response){
         dispatch({type:"GET_BOOKS", payload:response.data})
       })
@@ -33,7 +33,7 @@ export function getBooks(){
 // POST A BOOK
 export function postBooks(book) {
   return function(dispatch){
-    axios.post('/books', book) // send http POST request with axios to /books, pass in book argument
+    axios.post('/api/books', book) // send http POST request with axios to /books, pass in book argument
     .then(function(response){
       dispatch({type:"POST_BOOK", payload:response.data})
     })
@@ -44,10 +44,15 @@ export function postBooks(book) {
 }
 
 // DELETE A BOOK
-export function deleteBooks(id) {
-  return {
-    type: "DELETE_BOOK",
-    payload: id
+export function deleteBooks(id){
+  return function(dispatch){
+    axios.delete("/api/books/" + id)
+    .then(function(response){
+      dispatch({type:"DELETE_BOOK", payload:id})
+    })
+    .catch(function(err){
+      dispatch({type:"DELETE_BOOK_REJECTED", payload:err})
+    })
   }
 }
 
