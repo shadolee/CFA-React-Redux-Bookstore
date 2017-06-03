@@ -69,7 +69,7 @@ app.post('/books', function(req, res){ // http POST request on /books, will pass
 app.get('/books', function(req, res){ // GET request for /books
   Books.find(function(err, books){ // find all books in catalogue
     if(err){ // callback to handle MongoDB response
-      throw err; // show error if there is one
+      console.log('# API DELETE BOOKS: ', err); // show error if there is one
     }
     res.json(books); // otherwise return json list of books
   })
