@@ -54,18 +54,18 @@ class BookItem extends React.Component{
     return(
       <Well>
         <Row>
-          <Col xs={12} sm={4}>
-            <Image src={this.props.images} responsive/>
+          <Col xs={12} sm={4} >
+            <Image width={150} height={200} src={this.props.images} responsive/>
           </Col>
           <Col xs={6} sm={8}>
             <h6> { this.props.title } </h6>
-            <p> {(this.props.description.length > 50 &&    // display only first 50 characters of description
+            <p> {(this.props.description.length > 150 &&    // display only first 50 characters of description
                 this.state.isClicked === false)?
-                (this.props.description.substring(0, 50)):(this.props.description)}
+                (this.props.description.substring(0, 150)):(this.props.description)}
               <button className='link' onClick={this.onReadMore.bind(this)}>
                 {(this.state.isClicked === false && this.props.description !== null &&
-                this.props.description.length > 50)?
-                ('...read more'):('')}   
+                this.props.description.length > 150)?
+                ('...read more'):('')}
               </button>
             </p>
             <h6> AUD $ { this.props.price } </h6>

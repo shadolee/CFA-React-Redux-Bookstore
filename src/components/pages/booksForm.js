@@ -76,7 +76,7 @@ class BooksForm extends React.Component {
     return (
       <Well>
         <Row>
-          <Col xs={12} sm={6}>
+          <Col xs={6} sm={6}>
             <Panel style={{marginTop: '75px'}}>
               <InputGroup>
                 <FormControl type="text" ref="image" value={this.state.img} />

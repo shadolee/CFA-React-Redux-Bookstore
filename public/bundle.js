@@ -13202,7 +13202,7 @@ var BooksForm = function (_React$Component) {
           null,
           _react2.default.createElement(
             _reactBootstrap.Col,
-            { xs: 12, sm: 6 },
+            { xs: 6, sm: 6 },
             _react2.default.createElement(
               _reactBootstrap.Panel,
               { style: { marginTop: '75px' } },
@@ -23642,7 +23642,7 @@ var Footer = function (_React$Component) {
           _react2.default.createElement(
             "p",
             { className: "footer-text" },
-            "Copyright 2017 Bookshop. All rights reserved"
+            "Copyright 2017 ACAP Bookshop. All rights reserved"
           )
         )
       );
@@ -23705,7 +23705,7 @@ var Menu = function (_React$Component) {
             _react2.default.createElement(
               'a',
               { href: '/' },
-              'React-Bootstrap'
+              'Australian College of Applied Psychology'
             )
           ),
           _react2.default.createElement(_reactBootstrap.Navbar.Toggle, null)
@@ -23715,16 +23715,11 @@ var Menu = function (_React$Component) {
           null,
           _react2.default.createElement(
             _reactBootstrap.Nav,
-            null,
+            { pullLeft: true },
             _react2.default.createElement(
-              _reactBootstrap.NavItem,
-              { eventKey: 1, href: '/about' },
-              'About'
-            ),
-            _react2.default.createElement(
-              _reactBootstrap.NavItem,
-              { eventKey: 2, href: '/contacts' },
-              'Contact Us'
+              'a',
+              { href: '/', 'class': 'navbar-left' },
+              _react2.default.createElement('img', { width: 50, height: 50, src: 'https://dl.dropbox.com/s/s9deuhlx6erbb5q/AcapLogo.png' })
             )
           ),
           _react2.default.createElement(
@@ -23856,7 +23851,7 @@ var BookItem = function (_React$Component) {
           _react2.default.createElement(
             _reactBootstrap.Col,
             { xs: 12, sm: 4 },
-            _react2.default.createElement(_reactBootstrap.Image, { src: this.props.images, responsive: true })
+            _react2.default.createElement(_reactBootstrap.Image, { width: 150, height: 200, src: this.props.images, responsive: true })
           ),
           _react2.default.createElement(
             _reactBootstrap.Col,
@@ -23872,12 +23867,12 @@ var BookItem = function (_React$Component) {
               'p',
               null,
               ' ',
-              this.props.description.length > 50 && // display only first 50 characters of description
-              this.state.isClicked === false ? this.props.description.substring(0, 50) : this.props.description,
+              this.props.description.length > 150 && // display only first 50 characters of description
+              this.state.isClicked === false ? this.props.description.substring(0, 150) : this.props.description,
               _react2.default.createElement(
                 'button',
                 { className: 'link', onClick: this.onReadMore.bind(this) },
-                this.state.isClicked === false && this.props.description !== null && this.props.description.length > 50 ? '...read more' : ''
+                this.state.isClicked === false && this.props.description !== null && this.props.description.length > 150 ? '...read more' : ''
               )
             ),
             _react2.default.createElement(
@@ -23981,7 +23976,7 @@ var BooksList = function (_React$Component) {
       var booksList = this.props.books.map(function (booksArr) {
         return _react2.default.createElement(
           _reactBootstrap.Col,
-          { xs: 12, sm: 6, md: 4, key: booksArr._id },
+          { xs: 12, sm: 6, md: 12, key: booksArr._id },
           _react2.default.createElement(_bookItem2.default, {
             _id: booksArr._id,
             title: booksArr.title,

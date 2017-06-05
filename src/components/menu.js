@@ -8,15 +8,18 @@ class Menu extends React.Component{
       <Navbar inverse fixedTop>
     <Navbar.Header>
       <Navbar.Brand>
-        <a href="/">React-Bootstrap</a>
+        <a href="/">Australian College of Applied Psychology</a>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
     <Navbar.Collapse>
-      <Nav>
+      {/* <Nav>
         <NavItem eventKey={1} href="/about">About</NavItem>
         <NavItem eventKey={2} href="/contacts">Contact Us</NavItem>
 
+      </Nav> */}
+      <Nav pullLeft>
+        <a href="/" class="navbar-left"><img width={50} height={50} src="https://dl.dropbox.com/s/s9deuhlx6erbb5q/AcapLogo.png"/></a>
       </Nav>
       <Nav pullRight>
         <NavItem eventKey={1} href="/admin">Admin</NavItem>
