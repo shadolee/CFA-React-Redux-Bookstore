@@ -19,8 +19,10 @@ app.use(cookieParser());
 
 // API's //////////////
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/bookshop');
-
+// LOCAL DATABASE
+// mongoose.connect('mongodb://localhost:27017/bookshop');
+// MONGO LAB
+mongoose.connect('mongodb://testUser:password@ds161041.mlab.com:61041/cfa-bookshop')
 var db = mongoose.connection; // db will hold our connection
 db.on('error', console.error.bind(console, '# MongoDB - connection error: ')); // this will identify any errors with mongo conection
 

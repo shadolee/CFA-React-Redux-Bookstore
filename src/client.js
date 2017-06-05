@@ -20,23 +20,18 @@ import { addToCart } from './actions/cartActions';
 
 // STEP 1 create the store
 const middleware = applyMiddleware(thunk, logger );
-const store = createStore(reducers, middleware);
+// WE WILL PASS INITIAL STATE FROM SERVER STORE
+const initialState = window.INITIAL_STATE;
+// INITIAL_STATE is a global variable we use to capture the "initial state" from the Redux Store in the server and pass it on to the Store in the Client
+const store = createStore(reducers, initialState, middleware);
 
 
-import BooksList from './components/pages/booksList';
-import Cart from './components/pages/cart';
-import BooksForm from './components/pages/booksForm';
-import Main from './main';
+
+import routes from './routes'
 
 const Routes = (
     <Provider store={store}>
-      <Router history={browserHistory} >
-        <Route path="/" component={Main} >
-          <IndexRoute component={BooksList} />
-          <Route path="/admin" component={BooksForm} />
-          <Route path="/cart" component={Cart} />
-        </Route>
-      </Router>
+      {routes}
     </Provider>
 )
 

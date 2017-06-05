@@ -1,15 +1,17 @@
+require('babel-core/register')({
+  "presets":["es2015", "react", "stage-1"]
+});
+
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 // PROXY SERVER
 var httpProxy = require('http-proxy');
+// REQUEST HANDLER FOR SERVER SIDE RENDERING
+var requestHandler = require('./requestHandler.js')
 
 var app = express();
-
-// view engine setup - not using view engines in this app
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -30,9 +32,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 
-app.get('*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
-});
+app.set('view engine', 'ejs');
+app.use(requestHandler);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
