@@ -23997,42 +23997,42 @@ var BooksList = function (_React$Component) {
             _react2.default.createElement(
               _reactBootstrap.Carousel.Item,
               null,
-              _react2.default.createElement('img', { width: 900, height: 300, alt: '900x300', src: 'http://images.adsttc.com/media/images/5004/e94f/28ba/0d4e/8d00/0e10/large_jpg/stringio.jpg?1429931198' }),
+              _react2.default.createElement('img', { width: 900, height: 300, alt: '900x300', src: 'https://www.derby.ac.uk/online/sites/online2/files/banner-guardian-landing-psychology.jpg' }),
               _react2.default.createElement(
                 _reactBootstrap.Carousel.Caption,
                 null,
-                _react2.default.createElement(
-                  'h3',
-                  null,
-                  'First slide label'
-                ),
-                _react2.default.createElement(
-                  'p',
-                  null,
-                  'Nulla vitae elit libero, a pharetra augue mollis interdum.'
-                )
+                _react2.default.createElement('h3', null),
+                _react2.default.createElement('p', null)
               )
             ),
             _react2.default.createElement(
               _reactBootstrap.Carousel.Item,
               null,
-              _react2.default.createElement('img', { width: 900, height: 300, alt: '900x300', src: 'https://ssl-static-images.ravensburger.com/images/produktseiten/1024/19314_2.jpg' }),
+              _react2.default.createElement('img', { width: 900, height: 300, alt: '900x300', src: 'http://psychologyschools.com/uploads/digital_asset/file/1159/psychologyschoolscom-main-image_900x300.jpg' }),
               _react2.default.createElement(
                 _reactBootstrap.Carousel.Caption,
                 null,
-                _react2.default.createElement(
-                  'h3',
-                  null,
-                  'Second slide label'
-                ),
-                _react2.default.createElement(
-                  'p',
-                  null,
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
-                )
+                _react2.default.createElement('h3', null),
+                _react2.default.createElement('p', null)
+              )
+            ),
+            _react2.default.createElement(
+              _reactBootstrap.Carousel.Item,
+              null,
+              _react2.default.createElement('img', { width: 900, height: 300, alt: '900x300', src: 'http://www.akinsford.com/blog/wp-content/uploads/2015/09/small-graduation-people.jpg' }),
+              _react2.default.createElement(
+                _reactBootstrap.Carousel.Caption,
+                null,
+                _react2.default.createElement('h3', null),
+                _react2.default.createElement('p', null)
               )
             )
           )
+        ),
+        _react2.default.createElement(
+          'h4',
+          null,
+          'Bachelor of Counselling - Year 1 Textbooks'
         ),
         _react2.default.createElement(
           _reactBootstrap.Row,
@@ -24263,8 +24263,14 @@ function cartReducers() {
         totalQty: totals(action.payload).qty
       });
       break;
+    case "ADD_TO_CART":
+      return _extends({}, state, {
+        cart: action.payload,
+        totalAmount: totals(action.payload).amount,
+        totalQty: totals(action.payload).qty
+      });
+      break;
     case "UPDATE_CART":
-
       return _extends({}, state, {
         cart: action.payload,
         totalAmount: totals(action.payload).amount,
@@ -24282,14 +24288,15 @@ function cartReducers() {
   return state;
 }
 
-//  CALCULATE TOTALS
+// CALCULATE TOTALS
 function totals(payloadArr) {
 
   var totalAmount = payloadArr.map(function (cartArr) {
     return cartArr.price * cartArr.quantity;
   }).reduce(function (a, b) {
     return a + b;
-  }, 0); // start summing from index[0]
+  }, 0); //start summing from index0
+
 
   var totalQty = payloadArr.map(function (qty) {
     return qty.quantity;

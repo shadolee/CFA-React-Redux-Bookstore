@@ -33,21 +33,31 @@ class BooksList extends React.Component {
         <Row>
           <Carousel>
             <Carousel.Item>
-              <img width={900} height={300} alt="900x300" src="http://images.adsttc.com/media/images/5004/e94f/28ba/0d4e/8d00/0e10/large_jpg/stringio.jpg?1429931198"/>
+              <img width={900} height={300} alt="900x300" src="https://www.derby.ac.uk/online/sites/online2/files/banner-guardian-landing-psychology.jpg"/>
               <Carousel.Caption>
-                <h3>First slide label</h3>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <h3></h3>
+                <p></p>
               </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-              <img width={900} height={300} alt="900x300" src="https://ssl-static-images.ravensburger.com/images/produktseiten/1024/19314_2.jpg"/>
+              <img width={900} height={300} alt="900x300" src="http://psychologyschools.com/uploads/digital_asset/file/1159/psychologyschoolscom-main-image_900x300.jpg"/>
               <Carousel.Caption>
-                <h3>Second slide label</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <h3></h3>
+                <p></p>
+              </Carousel.Caption>
+            </Carousel.Item>
+            <Carousel.Item>
+              <img width={900} height={300} alt="900x300" src="http://www.akinsford.com/blog/wp-content/uploads/2015/09/small-graduation-people.jpg"/>
+              <Carousel.Caption>
+                <h3></h3>
+                <p></p>
               </Carousel.Caption>
             </Carousel.Item>
           </Carousel>
         </Row>
+
+        <h4>Bachelor of Counselling - Year 1 Textbooks</h4>
+
         <Row>
           <Cart />
         </Row>

@@ -1,6 +1,7 @@
 body {
   margin-top: 50px;
   margin-bottom: 50px;
+
 }
 
 .container {
@@ -21,5 +22,10 @@ button.link {
   padding: 3;
   outline: none;
   outline-offset: 0;
-  color: white; 
+  color: white;
+}
+
+h1, h2, h3, h4 {
+  text-align: center;
+  color: orange !important;
 }
