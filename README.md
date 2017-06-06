@@ -5,7 +5,7 @@ This is the Term 3 major project as part of the Coder Factory Academy bootcamp d
 
 The project outline was to:
 
-######  Design, build, deploy and present an application built for areal world customer.
+######  Design, build, deploy and present an application built for a real world customer.
 
 Meet with the business owner or organisation manager to find out what challenges they face. Find a problem that you can solve with anapplication and present your ideas to the client.
 
@@ -23,17 +23,6 @@ The solution is to have a textbook sales page on the college website so students
 - Users can increment/decrement the quantity of a book in their cart.
 - Admin can add and delete a book.
 
-# Installation:
-
-```sh
-$ git clone CFA-T3-Bookstore-Project
-```
-```sh
-$ cd CFA-T3-Bookstore-Project
-```
-```sh
-$ nodemon
-```
 
 # Client Technology and Development Tools:
   - [ReactJS](https://facebook.github.io/react/): a javascript library for building user interfaces.
@@ -58,6 +47,27 @@ Other libraries used:
 - Add Stripe payment functionality
 - Refactor file structure to improve usability 
 - Include every book for every course at the college
+
+# Installation:
+
+It is assumed you have Nodemon and Mongo installed on your machine.
+
+```sh
+$ git clone CFA-T3-Bookstore-Project
+```
+```sh
+$ cd CFA-T3-Bookstore-Project
+```
+```sh
+npm install
+```
+```sh
+$ nodemon
+```
+In a separate terminal tab, start your local mongo database by running:
+```sh
+$ mongod --dbpath ~/__YOUR_MONGODB_PATH___ (or your own mongo database link)
+```
 
 ![erd](https://cloud.githubusercontent.com/assets/24615235/26812783/22b3c05a-4abd-11e7-9484-9cb58bde6b66.jpg)
 ![userjourney](https://cloud.githubusercontent.com/assets/24615235/26813102/401245ac-4abf-11e7-9c31-6c05c629667f.jpg)
