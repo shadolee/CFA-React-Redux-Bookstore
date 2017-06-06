@@ -5,13 +5,17 @@ This is the Term 3 major project as part of the Coder Factory Academy bootcamp d
 
 The project outline was to:
 
-######  Design, build, deploy and present an application built for a real world customer.
+####  Design, build, deploy and present an application built for a real world customer.
 
 Meet with the business owner or organisation manager to find out what challenges they face. Find a problem that you can solve with anapplication and present your ideas to the client.
+
+##### Problem:
 
 My client is a small private college who offer tertiary qualifications focused in cognate areas such as psychology, counselling & social science. 
 
 The problem was, the college directed students to purchase their textbooks from a 3rd party supplier. This caused anxiety, particularly from new students, about getting the correct textbooks/correct editions and caused the student administration team to handle high volumes of student enquiries regarding this one issue. Even after the college website was updated to include more details regarding obtaining textbooks, the number of student enquiries regarding this remained high.
+
+##### Solution:
 
 The solution is to have a textbook sales page on the college website so students will feel comfort and certainty they are purchasing the correct textbooks.
 
@@ -45,7 +49,7 @@ Other libraries used:
 
 # Future Improvements:
 - Add Stripe payment functionality
-- Refactor file structure to improve usability 
+- Refactor file structure to improve coder usability 
 - Include every book for every course at the college
 
 # Installation:
