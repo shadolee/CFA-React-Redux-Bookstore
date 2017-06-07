@@ -37,7 +37,7 @@ The solution is to have a textbook sales page on the college website so students
  
 Other libraries used:
 - Path: used for handling and transforming file paths.
-- Morgan: HTTP request logger middleware for node.js
+- Morgan: HTTP request logger middleware for node.js, Redux-logger is a middleware that capture all actions and logs nicely from the previous state and the next one, providing a great visibility on how the store is behaving.
 - Http-Proxy: a full-featured http proxy for node.js.
 - Requesthandler: handles http requests.
 - Mongoose: a schema based solution to model application data. Creates an easy to use object reference (k:v) when interacting with MongoDb.
