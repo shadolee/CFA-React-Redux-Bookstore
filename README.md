@@ -46,6 +46,7 @@ Other libraries used:
 - Body-Parser: will take the body of your request and parse it to whatever you want your server to receive in POST/PUT requests.
 - Connect-Mongo-Store: session store for connect using MongoDb.
 - Express-Session: save data in session id.
+- React-Redux: connects your Redux store with React components.
 
 # Future Improvements:
 - Add Stripe payment functionality
